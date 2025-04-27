@@ -16,6 +16,7 @@ services:
     volumes:
       - ./app:/app/app
       - ./videos:/app/videos
+      - /mnt/nfs-data:/mnt/nfs-data
 
   nginx:
     image: nginx:alpine
