@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: rising_stars_db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: rising_stars_db
+      POSTGRES_USER: rising_stars_user
+      POSTGRES_PASSWORD: rising_stars_password
+
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+    ports:
+      - "5432:5432"
+
+networks:
+  default:
+    name: db-network
+
+volumes:
+  db-data:
+    name: db-data
