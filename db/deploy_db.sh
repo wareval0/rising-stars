@@ -4,7 +4,8 @@ set -euo pipefail
 
 echo "Installing Docker + Compose v2…"
 apt-get update -y
-apt-get install -y docker.io docker-compose-plugin
+apt-get install -y docker.io
+apt-get install docker-compose-plugin
 
 echo "Enabling Docker service…"
 systemctl enable --now docker

@@ -1,0 +1,39 @@
+services:
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  worker:
+    build: . 
+    container_name: worker
+    restart: unless-stopped
+    depends_on:
+      - redis
+
+    environment:
+      CELERY_BROKER_URL: redis://redis:6379/0
+      CELERY_RESULT_BACKEND: redis://redis:6379/0
+      DATABASE_URL: postgresql://rising_stars_user:rising_stars_password@10.0.0.118:5432/rising_stars_db
+      PYTHONPATH: /app
+
+    volumes:
+      - .:/app
+      - /mnt/nfs-data:/mnt/nfs-data
+
+    working_dir: /app
+
+    networks:
+      - db-network
+      - default
+
+volumes:
+  redis_data:
+
+networks:
+  db-network:
+    external: true
