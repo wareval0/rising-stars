@@ -1,4 +1,4 @@
-# Rising Stars Data Base
+# Rising Stars Worker
 
 ## Deployment
 ```

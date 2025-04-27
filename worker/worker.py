@@ -50,7 +50,7 @@ def update_video_status(video_id: int, user_id: int):
             input_path = relative_input_path.replace("nfs-storage", "/mnt/nfs-data")
         else:
             # Fallback a la ruta local por si hay archivos viejos
-            input_path = os.path.join(os.getcwd(), relative_input_path)
+            input_path = os.path.join(relative_input_path)
 
         # Generar la ruta de salida, manteniendo la estructura de directorios
         relative_output_path = relative_input_path.replace("input_", "output_")
@@ -58,7 +58,7 @@ def update_video_status(video_id: int, user_id: int):
         if relative_input_path.startswith("nfs-storage"):
             output_path = relative_output_path.replace("nfs-storage", "/mnt/nfs-data")
         else:
-            output_path = os.path.join(os.getcwd(), relative_output_path)
+            output_path = os.path.join(relative_output_path)
 
 
         os.makedirs(os.path.dirname(output_path), exist_ok=True)

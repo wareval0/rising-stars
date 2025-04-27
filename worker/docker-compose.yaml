@@ -10,7 +10,7 @@ services:
 
   worker:
     build: . 
-    container_name: worker
+    container_name: rising_stars_worker
     restart: unless-stopped
     depends_on:
       - redis
