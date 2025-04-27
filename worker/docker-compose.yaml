@@ -27,13 +27,5 @@ services:
 
     working_dir: /app
 
-    networks:
-      - db-network
-      - default
-
 volumes:
   redis_data:
-
-networks:
-  db-network:
-    external: true
