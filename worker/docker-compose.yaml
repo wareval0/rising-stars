@@ -9,7 +9,9 @@ services:
       - redis_data:/data
 
   worker:
-    build: . 
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: worker
     restart: unless-stopped
     depends_on:
