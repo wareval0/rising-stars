@@ -34,7 +34,7 @@ class VideoService:
 
         # Cambiar la ruta para usar el volumen NFS montado
         relative_path = os.path.join("mnt", "nfs-data", f"input_{unique_filename}")
-        absolute_path = os.path.join(os.getcwd(), relative_path)
+        absolute_path = os.path.join(os.getcwd(), f"/{relative_path}")
 
         # Asegurar que el directorio existe
         os.makedirs(os.path.dirname(absolute_path), exist_ok=True)
