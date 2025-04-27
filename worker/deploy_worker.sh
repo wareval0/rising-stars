@@ -15,13 +15,8 @@ if id "ubuntu" &>/dev/null; then
   usermod -aG docker ubuntu
 fi
 
-echo "Creating folder for Worker data…"
-mkdir -p /opt/rising-stars-worker
-cp "$(dirname "$0")/docker-compose.yaml" /opt/rising-stars-worker/
-
-cd /opt/rising-stars-worker
-
-echo "Starting Worker container…"
+echo "Deploying Worker container…"
+cd "$(dirname "$0")"
 docker compose up -d
 
 echo -e "Worker is running.\n"
