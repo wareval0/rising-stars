@@ -15,5 +15,5 @@ decorator>=4.3.0
 celery>=5.2.3
 redis>=4.1.0
 pytest
-Pillow>=7.0.0
+pillow==9.5.0
 python-multipart==0.0.6
