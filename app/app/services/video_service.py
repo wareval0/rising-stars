@@ -12,9 +12,10 @@ from app.schemas.video_schema import VideoCreate, VideoReponseDetail, VideoUpdat
 from PIL import Image
 
 
-# Arreglo para la constante deprecada
-if not hasattr(Image, "ANTIALIAS"):
-    Image.ANTIALIAS = Image.Resampling.LANCZOS
+if hasattr(Image, 'Resampling'):
+    RESAMPLING = Image.Resampling.LANCZOS
+else:
+    RESAMPLING = Image.LANCZOS
 
 celery_app = Celery(
     "client",
