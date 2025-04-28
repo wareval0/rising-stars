@@ -13,7 +13,8 @@ from PIL import Image
 
 
 # Arreglo para la constante deprecada
-Image.ANTIALIAS = Image.LANCZOS
+if not hasattr(Image, "ANTIALIAS"):
+    Image.ANTIALIAS = Image.Resampling.LANCZOS
 
 celery_app = Celery(
     "client",
