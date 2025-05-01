@@ -29,7 +29,7 @@ if id "ubuntu" &>/dev/null; then
 fi
 
 echo "Deploying App container…"
-cd "$(dirname "$0")"
-docker compose up -d
+APP_DIR=/rising-stars/app
+docker compose -f "$APP_DIR/docker-compose.yml" up -d
 
 echo -e "Worker is running.\n"

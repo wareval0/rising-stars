@@ -4,6 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: rising_stars_app
+    restart: unless-stopped
     environment:
       - PYTHONPATH=/app
       - DATABASE_URL=postgresql://rising_stars_user:rising_stars_password@10.0.0.118:5432/rising_stars_db
@@ -21,6 +22,7 @@ services:
   nginx:
     image: nginx:alpine
     container_name: nginx
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
