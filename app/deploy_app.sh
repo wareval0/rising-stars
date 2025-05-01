@@ -30,6 +30,6 @@ fi
 
 echo "Deploying App container…"
 APP_DIR=/rising-stars/app
-docker compose -f "$APP_DIR/docker-compose.yml" up -d
+docker compose -f "$APP_DIR/docker-compose.yaml" up -d
 
 echo -e "Worker is running.\n"
